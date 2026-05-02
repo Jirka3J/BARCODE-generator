@@ -39,9 +39,9 @@ void printhelp(void) {
     printf("  barcode out EAN13 863462131723 3\n");
 }
 
-int main(int argc, char *argv[]){
+int runCLI(int argc, char *argv[]) {
     // help print
-    if(argc<2||strcmp(argv[1],"-h")==0) {
+    if(strcmp(argv[1],"-h")==0) {
         printhelp();
         return 0;
     }
@@ -51,7 +51,10 @@ int main(int argc, char *argv[]){
     const char *type = argv[2];
     enum barcodeType etype;
     const char *data = argv[3];
-    int scale = atoi(argv[4]);
+    int scale = 4;
+    if (argc > 4 && argv[4] != NULL) {
+        scale = atoi(argv[4]);
+    }
     char *bin;
 
 
@@ -78,17 +81,15 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-
-
-
-    char* generated_bin;
-/*    if(generateEAN("863462131723",&generated_bin)==-1) {
-        printf("chyba zadání kódu");
-        return;
-    }*/
-
     printf("generuji bitmapu...\n");
     save_bar_bmp(file,bin,scale,20,etype);
     printf("%s",file);
+    return 0;
+}
+
+int main(int argc, char *argv[]){
+    if (argc>1) {
+        runCLI(argc,argv);
+    }else
     return 0;
 }
