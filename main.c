@@ -1,0 +1,94 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "bmp.h"
+#include "EAN13.h"
+
+#define BINARYCODELENGTH 100
+
+#define ERR1 "Unknown type, try EAN13, BIN"
+#define ERR2 "Invalid code, EAN13 has 12 digits, binary is limited"
+
+int binary_check(const char* data) {
+    for(int i=0;i<BINARYCODELENGTH;i++) {
+        if(data[i]!='0'||data[i]!='1') {
+            return -2;
+        }if(data[i]=='\0'){return 0;}
+    }
+    return -2;
+}
+
+char* ensure_bmp_extension(const char* filename) {
+    size_t len = strlen(filename);
+    if (len >= 4 && strcmp(filename + len - 4, ".bmp") == 0) {
+        return (char*)filename;
+    }
+    char *result = malloc(len + 6);
+    if (!result) return NULL;
+    strcpy(result, filename);
+    strcat(result, ".bmp\0");
+    return result;
+
+}
+
+void printhelp(void) {
+    printf("Usage:\n");
+    printf("  barcode <file> <EAN13|BIN> <data> <scale>\n");
+    printf("\nExample:\n");
+    printf("  barcode out EAN13 863462131723 3\n");
+}
+
+int main(int argc, char *argv[]){
+    // help print
+    if(argc<2||strcmp(argv[1],"-h")==0) {
+        printhelp();
+        return 0;
+    }
+
+    // CLI Managment
+    char *file = argv[1];
+    const char *type = argv[2];
+    enum barcodeType etype;
+    const char *data = argv[3];
+    int scale = atoi(argv[4]);
+    char *bin;
+
+
+    // kontrola filename, doplneni .bmp
+    file = ensure_bmp_extension(argv[1]);
+    // GENERACE a KONTROLA EAN-13
+    if (strcmp(type, "EAN13") == 0) {
+        etype=EAN13;
+        if (generateEAN(data, &bin) != 0) {
+            fprintf(stderr,ERR2);
+            return 2;
+        }
+    }
+    // KONTROLA BINARNIHO KODU
+    else if (strcmp(type, "BIN") == 0) {
+        etype=BIN;
+        if(binary_check(data)==-2) {
+            fprintf(stderr,ERR2);
+            return 2;
+        };
+    }
+    else {
+        fprintf(stderr,ERR1);
+        return 1;
+    }
+
+
+
+
+    char* generated_bin;
+/*    if(generateEAN("863462131723",&generated_bin)==-1) {
+        printf("chyba zadání kódu");
+        return;
+    }*/
+
+    printf("generuji bitmapu...\n");
+    save_bar_bmp(file,bin,scale,20,etype);
+    printf("%s",file);
+    return 0;
+}

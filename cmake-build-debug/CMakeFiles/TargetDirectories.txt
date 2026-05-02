@@ -1,0 +1,3 @@
+C:/Users/jirka/CLionProjects/barcode/cmake-build-debug/CMakeFiles/barcode.dir
+C:/Users/jirka/CLionProjects/barcode/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/jirka/CLionProjects/barcode/cmake-build-debug/CMakeFiles/rebuild_cache.dir
