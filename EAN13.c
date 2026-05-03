@@ -74,7 +74,7 @@ int checkEAN(const char* code,unsigned int *ncode) {
         }
     }
     if(code[12]!='\0'){return -1;}
-    ncode[12]=sum%10;
+    ncode[12]=10-sum%10;
     return ncode[12];
 }
 
@@ -88,7 +88,7 @@ int generateEAN(const char* code,char** bin_code) {
     pos += write_pattern(*bin_code + pos, "101");
     // zápis levé poloviny
     for (int i = 1; i <= 6; i++) {
-        pos += write_digit_left(*bin_code + pos, ncode[i],checkG(ncode[0],i-1));
+        pos += write_digit_left(*bin_code + pos, ncode[i],checkG(ncode[0],i));
     }
     // zápis středového patternu
     pos += write_pattern(*bin_code + pos, "01010");
@@ -98,7 +98,7 @@ int generateEAN(const char* code,char** bin_code) {
     }
     // zápis koncového patternu
     pos += write_pattern(*bin_code + pos, "101");
-    (*bin_code)[95]='\0';
+    (*bin_code)[pos]='\0';
 
     return 0;
 }

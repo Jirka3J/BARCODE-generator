@@ -75,7 +75,7 @@ int runCLI(int argc, char *argv[]) {
     }
 
     printf("generuji bitmapu...\n");
-    save_bar_bmp(file,bin,scale,20,etype);
+    save_bar_bmp(file,bin,scale,40,etype);
     printf("%s",file);
     return 0;
 }
@@ -86,7 +86,7 @@ int main(int argc, char *argv[]){
     }else {
         arguments_t args;
         while(runTerminal(&args)==0) {
-            save_bar_bmp(args.file,args.data,args.scale,20,args.btype);
+            save_bar_bmp(args.file,args.data,args.scale,40,args.btype);
         }
     }
     return 0;

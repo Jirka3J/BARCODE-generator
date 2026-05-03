@@ -45,7 +45,7 @@ void save_bar_bmp(const char *filename, const char *pattern, int scale, int heig
         case EAN13:
             x_pixel=0;
         for(int i=0;i<patternLen;i++) {
-            if(pattern[i]=='1'&&(i<3||(i>43&&i<50)||i>92)) {
+            if(pattern[i]=='1'&&(i<3||(i>43&&i<50)||i>91)) {
                 rcolor=RCOLOR;gcolor=GCOLOR;bcolor=BCOLOR;
             }else{rcolor=255;gcolor=255;bcolor=255;}
             for (int s = 0; s < scale; s++) {

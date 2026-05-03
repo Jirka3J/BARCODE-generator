@@ -5,9 +5,9 @@
 #ifndef BMP_H
 #define BMP_H
 
-#define RCOLOR 166
-#define GCOLOR 30
-#define BCOLOR 15
+#define RCOLOR 0
+#define GCOLOR 0
+#define BCOLOR 0
 
 #include "barcode.h"
 
