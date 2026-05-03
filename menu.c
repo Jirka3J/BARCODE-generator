@@ -132,8 +132,8 @@ int get_scale(arguments_t* args) {
     do
     {
         action=selection();
-        if ((action==up)&&(args->scale>0)) args->scale--;
-        if ((action==down)&&(args->scale<100)) args->scale++;
+        if ((action==down)&&(args->scale>0)) args->scale--;
+        if ((action==up)&&(args->scale<100)) args->scale++;
         printf("\b\b\b%3d", args->scale);
     }while(action!=enter);
     return 0;
