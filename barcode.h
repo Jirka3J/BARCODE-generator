@@ -5,4 +5,8 @@
 #ifndef BARCODE_H
 #define BARCODE_H
 
+enum barcodeType {BIN,EAN13};
+
+int binary_check(const char* data);
+
 #endif //BARCODE_H

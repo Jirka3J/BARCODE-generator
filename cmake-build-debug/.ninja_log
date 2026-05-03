@@ -1,8 +1,18 @@
 # ninja log v5
-4	73	7994297686603199	CMakeFiles/barcode.dir/barcode.c.obj	f77d16a0959df2d7
-4	104	7994479017530991	CMakeFiles/barcode.dir/main.c.obj	a07b0a2eee93c4fa
-9	91	7994358126672171	CMakeFiles/barcode.dir/bmp.c.obj	68b5731234b06676
-88	197	7994483453705852	barcode.exe	dfc6b9b00f0c0dfa
+8	72	7995041908762113	CMakeFiles/barcode.dir/barcode.c.obj	f77d16a0959df2d7
+4	91	7995042330014531	CMakeFiles/barcode.dir/main.c.obj	a07b0a2eee93c4fa
+10	90	7995042330004404	CMakeFiles/barcode.dir/bmp.c.obj	68b5731234b06676
+91	203	7995042331074889	barcode.exe	730db7601e42474f
 5	88	7994483452653384	CMakeFiles/barcode.dir/EAN13.c.obj	340306a6f77e1fdc
-4	99	7994491355737258	CMakeFiles/barcode.dir/main.c.obj	a07b0a2eee93c4fa
-100	211	7994491356794683	barcode.exe	dfc6b9b00f0c0dfa
+3	236	7995044009471618	build.ninja	1f6e62c9fa5b89a2
+14	103	7995042061820920	CMakeFiles/barcode.dir/menu.c.obj	ff8f85d0429b1437
+4	97	7995045889524689	CMakeFiles/barcode.dir/menu.c.obj	ff8f85d0429b1437
+98	211	7995045890622145	barcode.exe	730db7601e42474f
+5	89	7995047815929073	CMakeFiles/barcode.dir/main.c.obj	a07b0a2eee93c4fa
+90	199	7995047816978269	barcode.exe	730db7601e42474f
+4	84	7995056332394296	CMakeFiles/barcode.dir/EAN13.c.obj	340306a6f77e1fdc
+84	195	7995056333462832	barcode.exe	730db7601e42474f
+4	86	7995058240016051	CMakeFiles/barcode.dir/EAN13.c.obj	340306a6f77e1fdc
+87	209	7995058241186602	barcode.exe	730db7601e42474f
+4	86	7995059088756447	CMakeFiles/barcode.dir/EAN13.c.obj	340306a6f77e1fdc
+87	204	7995059089883922	barcode.exe	730db7601e42474f

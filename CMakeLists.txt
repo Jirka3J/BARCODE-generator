@@ -10,4 +10,6 @@ add_executable(barcode main.c
         bmp.h
         EAN13.c
         EAN13.h
+        menu.c
+        menu.h
 )

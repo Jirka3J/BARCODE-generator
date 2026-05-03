@@ -67,10 +67,10 @@ int checkEAN(const char* code,unsigned int *ncode) {
         ncode[i]=code[i]-'0';
         if (ncode[i]>9) {
             return -1;
-        }else if(ncode[i]%2) {
-            sum+=ncode[i];
-        }else {
+        }else if(i%2) {
             sum+=ncode[i]*3;
+        }else {
+            sum+=ncode[i];
         }
     }
     if(code[12]!='\0'){return -1;}
@@ -98,7 +98,7 @@ int generateEAN(const char* code,char** bin_code) {
     }
     // zápis koncového patternu
     pos += write_pattern(*bin_code + pos, "101");
-    bin_code[95]='\0';
+    (*bin_code)[95]='\0';
 
     return 0;
 }

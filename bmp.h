@@ -9,7 +9,7 @@
 #define GCOLOR 30
 #define BCOLOR 15
 
-enum barcodeType {BIN,EAN13};
+#include "barcode.h"
 
 void save_bar_bmp(const char *filename, const char *pattern, int scale, int height,enum barcodeType);
 

@@ -73,6 +73,12 @@ build CMakeFiles/barcode.dir/EAN13.c.obj: C_COMPILER__barcode_unscanned_Debug C$
   OBJECT_DIR = CMakeFiles\barcode.dir
   OBJECT_FILE_DIR = CMakeFiles\barcode.dir
 
+build CMakeFiles/barcode.dir/menu.c.obj: C_COMPILER__barcode_unscanned_Debug C$:/Users/jirka/CLionProjects/barcode/menu.c || cmake_object_order_depends_target_barcode
+  DEP_FILE = CMakeFiles\barcode.dir\menu.c.obj.d
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\barcode.dir
+  OBJECT_FILE_DIR = CMakeFiles\barcode.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target barcode
@@ -81,7 +87,7 @@ build CMakeFiles/barcode.dir/EAN13.c.obj: C_COMPILER__barcode_unscanned_Debug C$
 #############################################
 # Link the executable barcode.exe
 
-build barcode.exe: C_EXECUTABLE_LINKER__barcode_Debug CMakeFiles/barcode.dir/main.c.obj CMakeFiles/barcode.dir/barcode.c.obj CMakeFiles/barcode.dir/bmp.c.obj CMakeFiles/barcode.dir/EAN13.c.obj
+build barcode.exe: C_EXECUTABLE_LINKER__barcode_Debug CMakeFiles/barcode.dir/main.c.obj CMakeFiles/barcode.dir/barcode.c.obj CMakeFiles/barcode.dir/bmp.c.obj CMakeFiles/barcode.dir/EAN13.c.obj CMakeFiles/barcode.dir/menu.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\barcode.dir

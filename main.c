@@ -4,20 +4,13 @@
 
 #include "bmp.h"
 #include "EAN13.h"
-
-#define BINARYCODELENGTH 100
+#include "menu.h"
+#include "barcode.h"
 
 #define ERR1 "Unknown type, try EAN13, BIN"
 #define ERR2 "Invalid code, EAN13 has 12 digits, binary is limited"
 
-int binary_check(const char* data) {
-    for(int i=0;i<BINARYCODELENGTH;i++) {
-        if(data[i]!='0'||data[i]!='1') {
-            return -2;
-        }if(data[i]=='\0'){return 0;}
-    }
-    return -2;
-}
+
 
 char* ensure_bmp_extension(const char* filename) {
     size_t len = strlen(filename);
@@ -36,7 +29,7 @@ void printhelp(void) {
     printf("Usage:\n");
     printf("  barcode <file> <EAN13|BIN> <data> <scale>\n");
     printf("\nExample:\n");
-    printf("  barcode out EAN13 863462131723 3\n");
+    printf("  barcode.exe out EAN13 863462131723 3\n");
 }
 
 int runCLI(int argc, char *argv[]) {
@@ -90,6 +83,11 @@ int runCLI(int argc, char *argv[]) {
 int main(int argc, char *argv[]){
     if (argc>1) {
         runCLI(argc,argv);
-    }else
+    }else {
+        arguments_t args;
+        while(runTerminal(&args)==0) {
+            save_bar_bmp(args.file,args.data,args.scale,20,args.btype);
+        }
+    }
     return 0;
 }

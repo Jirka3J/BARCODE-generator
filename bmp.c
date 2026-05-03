@@ -10,7 +10,6 @@
 
 
 
-
 void save_bar_bmp(const char *filename, const char *pattern, int scale, int height,enum barcodeType type) {
     int width = strlen(pattern)*scale;
     int paddedWidth = (width*3+3)&(~3);      //width * 24bit colorspace převedení na násobek 4
