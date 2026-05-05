@@ -36,6 +36,7 @@ int runCLI(int argc, char *argv[]) {
     // help print
     if(strcmp(argv[1],"-h")==0) {
         printhelp();
+        getchar();
         return 0;
     }
 
