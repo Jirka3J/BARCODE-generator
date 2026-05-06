@@ -81,7 +81,6 @@ int checkEAN(const char* code,unsigned int *ncode) {
 int generateEAN(const char* code,char** bin_code) {
     unsigned int ncode[13];
     if(checkEAN(code,ncode)==-1){return -1;};
-
     *bin_code=calloc(95+1,1);
     int pos = 0;
     // zápis start patternu

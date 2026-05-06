@@ -17,6 +17,12 @@ typedef struct arguments {
 
 typedef enum  {up,down,odejit,enter,unknown} action_t; //výčtový typ pro ovládání akcí rozhraní konzoly
 
+
+/**
+ *
+ * @param args - arguments_t structure to fill with user input
+ * @return
+ */
 int runTerminal(arguments_t* args);
 
 #endif //MENU_H
