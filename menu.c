@@ -161,6 +161,7 @@ int display_barcode(arguments_t* args) {
 }
 
 int runTerminal(arguments_t* args) {
+    system("cls");
     action_t action;
     print_header();
     printf("q - quit\n");
