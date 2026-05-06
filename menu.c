@@ -125,6 +125,8 @@ void get_data(arguments_t* args) {
             break;
     }
 }
+
+//
 int get_scale(arguments_t* args) {
     args->scale=4;
     printf("Enter scale: %3d", args->scale);
@@ -139,6 +141,7 @@ int get_scale(arguments_t* args) {
     return 0;
 }
 
+//
 int display_barcode(arguments_t* args) {
     printf("Generated barcode:\n");
     for (int i=0; i<8; i++) {
@@ -169,7 +172,7 @@ int runTerminal(arguments_t* args) {
         default:
             system("cls");
             printf("Unknown action, try again\n");
-        return 0;
+        return -1;
     }
     system("cls");
     print_header();

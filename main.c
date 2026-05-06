@@ -86,8 +86,14 @@ int main(int argc, char *argv[]){
         runCLI(argc,argv);
     }else {
         arguments_t args;
-        while(runTerminal(&args)==0) {
+        int return_code=0;
+        while(return_code==0||return_code==-1) {
+            return_code=runTerminal(&args);
             save_bar_bmp(args.file,args.data,args.scale,40,args.btype);
+            if (return_code==0) {
+                free(args.file);
+                free(args.data);
+            }
         }
     }
     return 0;
