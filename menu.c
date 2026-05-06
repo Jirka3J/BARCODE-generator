@@ -126,9 +126,10 @@ void get_data(arguments_t* args) {
     }
 }
 
-//
+// gets scale from user input
 int get_scale(arguments_t* args) {
     args->scale=4;
+    printf("Use arrow keys to select scale of the barcode and press Enter to confirm.\n");
     printf("Enter scale: %3d", args->scale);
     action_t action;
     do
@@ -141,7 +142,7 @@ int get_scale(arguments_t* args) {
     return 0;
 }
 
-//
+// displays generated barcode in terminal via ASCII
 int display_barcode(arguments_t* args) {
     printf("Generated barcode:\n");
     for (int i=0; i<8; i++) {
@@ -166,7 +167,7 @@ int runTerminal(arguments_t* args) {
     printf("Enter - generate barcode\n");
     switch(selection()) {
         case odejit:
-            return-1;
+            return 1;
         case enter:
             break;
         default:

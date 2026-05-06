@@ -59,6 +59,8 @@ void save_bar_bmp(const char *filename, const char *pattern, int scale, int heig
             fwrite(row,1,paddedWidth,f);
         }
 
+
+        // 1 represents black
         case BIN:
             x_pixel=0;
             for(int i=0;i<patternLen;i++) {
