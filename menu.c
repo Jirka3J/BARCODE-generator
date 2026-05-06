@@ -139,6 +139,23 @@ int get_scale(arguments_t* args) {
     return 0;
 }
 
+int display_barcode(arguments_t* args) {
+    printf("Generated barcode:\n");
+    for (int i=0; i<8; i++) {
+        int len =strlen(args->data);
+        for (int j=0; j<len; j++) {
+            if (args->data[j] == '1') {
+                printf("%c",219);
+            } else {
+                printf(" ");
+            }
+        }
+        putchar('\n');
+    }
+    printf("press any key to continue");
+    getc(stdin);
+}
+
 int runTerminal(arguments_t* args) {
     action_t action;
     print_header();
@@ -166,6 +183,9 @@ int runTerminal(arguments_t* args) {
     system("cls");
     print_header();
     get_scale(args);
+    system("cls");
+    printf("Barcode is saved to %s\n",args->file);
+    display_barcode(args);
 
 
     system("cls");
